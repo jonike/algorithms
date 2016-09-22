@@ -14,5 +14,5 @@ The implementations also adhere to the following rules:
 
 - No typedefs (instead use "using"). 
 - Don't use unnecessary "using".
-- Don't use "#include <bits/stdc++.h>".
+- Don't use '#include "bits/stdc++.h"'.
 - No #define x (instead use const x or constexpr x).
