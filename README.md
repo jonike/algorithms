@@ -1,7 +1,7 @@
 # Guidelines
 All implementations in this git-repository adhere to the following rules/guidelines:
 
-- Thoughrouly tested. 
+- Thoroughly tested. 
 - Everything adhere to C++11 standards.
 - Compilable as is.
 - Effective and optimized implementations.
