@@ -1,7 +1,7 @@
 # Guidelines
 All implementations in this git-repository adhere to the following rules/guidelines:
 
-- Thoroughly tested. 
+- Thoroughly tested (at least AC on https://open.kattis.com/). 
 - Everything adhere to C++11 standards.
 - Compilable as is.
 - Effective and optimized implementations.
