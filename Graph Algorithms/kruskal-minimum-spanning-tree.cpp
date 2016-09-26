@@ -29,7 +29,7 @@ public:
     }
 };
 
-// Undirected edges. Returns the MST. Sorts the edges.
+// Undirected edges. Returns the MST.
 vector<edge> kruskal_mst(vector<edge>& edges, const int number_of_nodes){
     vector<edge> mst_out;
     sort(edges.begin(), edges.end());
