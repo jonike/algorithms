@@ -32,14 +32,15 @@ public:
 // Undirected edges. Returns the MST.
 vector<edge> kruskal_mst(vector<edge>& edges, const int number_of_nodes){
     vector<edge> mst_out;
+    if(number_of_nodes <= 1){return mst_out;}
     sort(edges.begin(), edges.end());
     union_set us(number_of_nodes);
     for(const auto& e : edges){
-        if(mst_out.size() >= number_of_nodes - 1){break;}
         const auto& c = e.second;
         if(us.find(c.first) != us.find(c.second)){
             mst_out.push_back(e);
             us.unify(c.first, c.second);
+            if(mst_out.size() >= number_of_nodes - 1){break;}
         }
     }
     return mst_out;
