@@ -1,0 +1,86 @@
+\title{A Competitive Programming Cheat Sheet}
+
+\documentclass[10pt,twocolumn,landscape]{article}
+
+\usepackage{listings}
+\usepackage[landscape,margin=0.5in]{geometry}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[utf8]{inputenc}
+\author{Make Programming Great Again™}
+
+\definecolor{comment-color}{rgb}{0.0,0.3,0.0} % Comment color
+\definecolor{highlight}{RGB}{255,251,204} % Code highlight color
+\definecolor{light-gray}{gray}{0.85}
+\definecolor{background-color}{gray}{0.95}
+\definecolor{string-color}{rgb}{0.05,0.6,0.0}
+\definecolor{keyword-color}{RGB}{255,41,41}
+
+\lstset{
+language=C++,
+basicstyle=\footnotesize,
+backgroundcolor=\color{background-color},
+commentstyle=\color{comment-color},
+stringstyle=\color{string-color},
+keywordstyle=\color{keyword-color},
+}
+\begin{document}
+\maketitle
+\clearpage
+
+\section{Data Structures}
+
+\subsection{fenwick-tree.cpp}
+\lstinputlisting{"./Data Structures/fenwick-tree.cpp"}
+
+\subsection{union-find.cpp}
+\lstinputlisting{"./Data Structures/union-find.cpp"}
+
+\section{Geometry}
+
+\subsection{2d-point-in-polygon.cpp}
+\lstinputlisting{"./Computational Geometry/2d-point-in-polygon.cpp"}
+
+\subsection{2d-polygon-area.cpp}
+\lstinputlisting{"./Computational Geometry/2d-polygon-area.cpp"}
+
+\section{Graphs}
+
+\subsection{floydwarshall-all-pairs.cpp}
+\lstinputlisting{"./Graph Algorithms/floydwarshall-all-pairs.cpp"}
+
+\subsection{bellmanford-shortest-path.cpp}
+\lstinputlisting{"./Graph Algorithms/bellmanford-shortest-path.cpp"}
+
+\subsection{dijkstra-shortest-path.cpp}
+\lstinputlisting{"./Graph Algorithms/dijkstra-shortest-path.cpp"}
+
+\subsection{tarjan-strongly-connected.cpp}
+\lstinputlisting{"./Graph Algorithms/tarjan-strongly-connected.cpp"}
+
+\subsection{dinic-maxflow.cpp}
+\lstinputlisting{"./Graph Algorithms/dinic-maxflow.cpp"}
+
+\subsection{kruskal-minimum-spanning-tree.cpp}
+\lstinputlisting{"./Graph Algorithms/kruskal-minimum-spanning-tree.cpp"}
+
+\subsection{toposort.cpp}
+\lstinputlisting{"./Graph Algorithms/toposort.cpp"}
+
+\subsection{fulkerson-maxflow.cpp}
+\lstinputlisting{"./Graph Algorithms/fulkerson-maxflow.cpp"}
+
+\section{Math}
+
+\subsection{extended-euclid.cpp}
+\lstinputlisting{"./Math/extended-euclid.cpp"}
+
+\section{String}
+
+\subsection{corasick-string-multimatch.cpp}
+\lstinputlisting{"./String Algorithms/corasick-string-multimatch.cpp"}
+
+\subsection{trie.cpp}
+\lstinputlisting{"./String Algorithms/trie.cpp"}
+
+\end{document}
+

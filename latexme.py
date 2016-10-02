@@ -64,13 +64,13 @@ def recursive_collect(collection, directory):
 
 header = r"""\title{A Competitive Programming Cheat Sheet}
 
-\documentclass[11pt,twocolumn,landscape]{article}
+\documentclass[10pt,twocolumn,landscape]{article}
 
 \usepackage{listings}
 \usepackage[landscape,margin=0.5in]{geometry}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage[utf8]{inputenc}
-\author{23.15\% Mer Kräm}
+\author{Make Programming Great Again™}
 
 \definecolor{comment-color}{rgb}{0.0,0.3,0.0} % Comment color
 \definecolor{highlight}{RGB}{255,251,204} % Code highlight color

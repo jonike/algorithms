@@ -35,10 +35,12 @@ class Dinic {
     int dfs(int v, int flow) {
 	if (flow == 0) return 0;
 	if (v == sink) return flow;
-	for (int & i = currentEdge[v]; i < (int) adjList[v].size(); ++i) {
+	const auto sz = (int) adjList[v].size();
+	for (int & i = currentEdge[v]; i < sz; ++i) {
 	    Edge& edge = adjList[v][i];
 	    if (levels[v] + 1 == levels[edge.to]) {
-		const auto minimalFlow = dfs(edge.to, min(flow, edge.cap - edge.flow));
+		limit = min(flow, edge.cap - edge.flow);
+		const auto minimalFlow = dfs(edge.to, limit);
 		if (minimalFlow > 0) {
 		    edge.flow += minimalFlow;
 		    Edge& revEdge = adjList[edge.to][edge.rev];

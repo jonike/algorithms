@@ -16,7 +16,8 @@ struct Edge {
 
 using AdjacencyList = vector< vector<Edge> >;
 
-void Dijkstra(vector<Node>& nodes, AdjacencyList& adjList, int start) {
+void Dijkstra(vector<Node>& nodes, AdjacencyList& adjList,
+	      int start) {
     struct State {
 	ValueT dist;
 	int node;

@@ -4,6 +4,8 @@
 #include <queue>
 using namespace std;
 
+using vvi=vector<vector<int>>;
+
 const unsigned int ALPHABET_SIZE = 96;
 inline int toc(char c){return c % ALPHABET_SIZE;}
 
@@ -19,18 +21,19 @@ struct CorasickStateMachine {
 
     vector<CorasickNode> nodes;
 
-    // Builds the Aho-Corasick state machine (basically a trie with a bunch of extra edges).
-    // This can be prebuilt and then used to search many different texts.
+    // Builds the Aho-Corasick state machine (basically a trie with a
+    // bunch of extra edges).  This can be prebuilt and then used to
+    // search many different texts.
     void RebuildStateMachine(const vector<string>& patterns){
         nodes.clear();
         nodes.push_back(CorasickNode()); // Start node.
-        // Define states.
         for(unsigned int cp = 0; cp < patterns.size(); cp++){
             int n = 0;
 
-            // Define a state for every char in the pattern with index cp.
+            // State for every char in the pattern with index cp.
             for(unsigned int i = 0; i < patterns[cp].size(); ++i){
-                int& currentState = nodes[n].edges[toc(patterns[cp][i])];
+		const auto tmp = toc(patterns[cp][i]);
+                int& currentState = nodes[n].edges[tmp];
 
                 // Define all undefined states.
                 if(currentState == -1){
@@ -42,9 +45,9 @@ struct CorasickStateMachine {
             nodes[n].matches.push_back(cp);
         }
 
-        // Init BFS queue with all defined nodes that neighbour from the start node.
-        // If an edge is undefined (i.e. it's not part of pattern), then point it back
-        // at the start node.
+        // Init BFS queue with all defined nodes that neighbour from
+        // the start node.  If an edge is undefined (i.e. it's not
+        // part of pattern), then point it back at the start node.
         queue<int> q;
         for(unsigned int c = 0; c < ALPHABET_SIZE; ++c){
             if(nodes[0].edges[c] > 0){
@@ -58,32 +61,32 @@ struct CorasickStateMachine {
         while(!q.empty()){
             int currentState = q.front(); q.pop();
             for(unsigned int c = 0; c < ALPHABET_SIZE; ++c){
-                if(nodes[currentState].edges[c] != -1){ // Check if node is defined.
+                if(nodes[currentState].edges[c] != -1){
 
-                    // Setup fail state by tracking through the fail states.
                     int failState = nodes[currentState].fail;
                     while(nodes[failState].edges[c] == -1){
                         failState = nodes[failState].fail;
                     }
 
-                    // Init matches by checking the fail state.
-                    nodes[nodes[currentState].edges[c]].fail = nodes[failState].edges[c];
-                    for(int match : nodes[nodes[failState].edges[c]].matches){
-                        nodes[nodes[currentState].edges[c]].matches.push_back(match);
+		    const auto& edge = nodes[currentState].edges[c];
+                    nodes[edge].fail = nodes[failState].edges[c];
+                    for(int match : nodes[edge].matches){
+                        nodes[edge].matches.push_back(match);
                     }
 
-                    // Push back defined edges on the queue and search those.
-                    q.push(nodes[currentState].edges[c]);
+                    q.push(edge);
                 }
             }
         }
     }
 
-    // Finds all occurences of all patterns in "patterns" in the text "text".
-    // Stores first indices of the matches of pattern i in the "result[i]" vector.
-    // Aho-Corasick search is worst case O(n + m + z) where n is size of text, m
-    // size of pattern and z is number of occurences of pattern in the text.
-    void FindMatches(const vector<string>& patterns, const string& text, vector<vector<int>>& results){
+    // Finds all occurences of all patterns in "patterns" in the text
+    // "text". Stores first indices of the matches of pattern i in the
+    // "result[i]" vector. Aho-Corasick search is worst case O(n + m +
+    // z) where n is size of text, m size of pattern and z is number
+    // of occurences of pattern in the text.
+    void FindMatches(const vector<string>& patterns,
+		     const string& text, vvi& results){
         int rootState = 0;
         for(unsigned int i = 0; i < text.length(); ++i){
             int currentState = rootState;
@@ -93,10 +96,11 @@ struct CorasickStateMachine {
             while(nodes[currentState].edges[currentChar] == -1){
                 currentState = nodes[currentState].fail;
             }
-            nodes[rootState].edges[currentChar] = nodes[currentState].edges[currentChar];
+	    
+	    const auto& curr = nodes[currentState].edges[currentChar];
+            nodes[rootState].edges[currentChar] = curr;
             rootState = nodes[rootState].edges[currentChar];
 
-            // Check for possible matches.
             for(auto j : nodes[rootState].matches){
                 // Match at index i for pattern with index j!
                 results[j].push_back(i - patterns[j].length() + 1);

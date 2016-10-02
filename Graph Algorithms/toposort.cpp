@@ -4,7 +4,6 @@ using namespace std;
 using AdjacencyList = vector< vector<int> >;
 
 vector<int> Toposort(AdjacencyList& adjList) {
-    // post-condition(num_nodes == adjList.size(), nodes numbered from 0 to num_nodes - 1)
     struct Node {
 	int idx{}, cnt{};
     };

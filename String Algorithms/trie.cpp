@@ -6,7 +6,8 @@ using namespace std;
 struct Node {
     char symbol{0};
     bool terminator{false};
-    // This could also be of size 256 or similar and be a vector instead of map
+    // This could also be of size 256 or similar and be a vector
+    // instead of map
     map<char, int> children;
     Node() {}
     Node(char k, bool t) : symbol{k}, terminator{t} {}
@@ -21,7 +22,8 @@ struct Trie {
 
     /* Constructs missing nodes. */
     template<typename Func>
-    void construct(const string& s, Func func, int start=0, int end=-1) {
+    void construct(const string& s, Func func,
+		   int start=0, int end=-1) {
 	if (end == -1) end = s.size();
 	int treeIdx = 0;
 	for (int i = start; i < end; ++i) {
@@ -36,7 +38,8 @@ struct Trie {
 	}
     }
     
-    /* Walks the structure, without constructing anything. Returns true on reacing end of string. */
+    /* Walks the structure, without constructing anything. Returns
+       true on reacing end of string. */
     template<typename Func>
     bool walk(const string& s, Func func, int start=0, int end=-1) {
 	if (end == -1) end = s.size();
@@ -68,7 +71,9 @@ struct Trie {
     bool exists(const string& s) {
 	int i = 0;
 	bool isEnd = false;
-	walk(s, [&](const Node& n) {if (++i == s.size()) isEnd=n.terminator;});
+	walk(s, [&](const Node& n) {
+		if (++i == s.size()) isEnd=n.terminator;
+	    });
 	return isEnd;
     }
 

@@ -12,8 +12,10 @@ struct Edge {
     ValueT weight;
 };
 
-void FloydWarshall(AdjacencyMatrix& dist, const vector<Edge>& edges) {
-    //post-condition: (dist.size() > 0 and dist.size() == dist[0].size());
+void FloydWarshall(AdjacencyMatrix& dist,
+		   const vector<Edge>& edges) {
+    //post-condition:
+    // (dist.size() > 0 and dist.size() == dist[0].size());
     int size = dist.size();
     int num_edge = edges.size();
 
@@ -27,11 +29,13 @@ void FloydWarshall(AdjacencyMatrix& dist, const vector<Edge>& edges) {
     for (int k = 0; k < size; ++k) {
 	for (int i = 0; i < size; ++i) {
 	    for (int j = 0; j < size; ++j) {
-		if (dist[i][k] == INF or dist[k][j] == INF) continue;
-		dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
-		/* If solving with negative cycles copy this loop and change the above line to
-		   'if (dist[k][k] < 0) dist[i][j] = -INF;'*/
+		if (dist[i][k] == INF or dist[k][j] == INF)
+		    continue;
+		dist[i][j] = min(dist[i][j],
+				 dist[i][k] + dist[k][j]);
 	    }
 	}
     }
 }
+/*If solving with negative cycles copy above loop and change the 
+last forloop to 'if (dist[k][k] < 0) dist[i][j] = -INF;*/

@@ -19,9 +19,11 @@ void BellmanFord(vector<Node>& nodes, vector<Edge>& edgeList,
     nodes[start].dist = 0; 
     for (int i = 1; i < num_nodes; ++i) {
 	for (auto& e : edgeList) {
-	    if (nodes[e.from].dist != INF)
+	    if (nodes[e.from].dist != INF) {
+		relaxed = nodes[e.from].dist + e.weight;
 		nodes[e.to].dist = min(nodes[e.to].dist, 
-				       nodes[e.from].dist + e.weight);
+				       relaxed);
+	    }
 	}
     }
 		

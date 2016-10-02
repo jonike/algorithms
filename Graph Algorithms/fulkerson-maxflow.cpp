@@ -35,23 +35,25 @@ bool hasAugPath(vvi& flow_graph, vvi& adj, vi& parent,
     return false;
 }
 
-/** It is important to create the adjecency list with bidirectional edges! */
-// Flow graph == Residual graph with capacities applied (only one direction)
-int MaxFlow(vvi& flow_graph, vvi& adjacency_list, int source, int sink) {
+// Use bidirectional edges in the adjlist!!!
+// Make the backflows = 0 (check for double edges in input)
+int MaxFlow(vvi& flow_graph, vvi& adjacency_list,
+	    int source, int sink) {
    vi parent(flow_graph.size());
    
    int maximum = 0;
-   while (hasAugPath(flow_graph, adjacency_list, parent, source, sink)) {
+   while (hasAugPath(flow_graph, adjacency_list,
+		     parent, source, sink)) {
       int flow = INF;
       
-      // Search through path for limiting flow
-      for (int current = sink; current != source; current = parent[current]) {
+      int current = sink;
+      for (;current != source; current = parent[current]) {
 	 int p = parent[current];
 	 flow = min(flow, flow_graph[p][current]);
       }
 
-      // Fill path with limiting flow
-      for (int current = sink; current != source; current = parent[current]) {
+      current = sink;
+      for (; current != source; current = parent[current]) {
 	 int p = parent[current];
 	 flow_graph[p][current] -= flow;
 	 flow_graph[current][p] += flow;
