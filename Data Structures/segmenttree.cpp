@@ -31,7 +31,8 @@ struct SegmentTree {
 
 	    let leftVal = st[Left(i)];
 	    let rightVal = st[Right(i)];
-	    st[i] = comparator(A[leftVal], A[rightVal]) ? leftVal : rightVal;
+	    st[i] = comparator(A[leftVal], A[rightVal]) ?
+		leftVal : rightVal;
 	}
     }
 
@@ -39,14 +40,15 @@ struct SegmentTree {
 	if (low > R or high < L) return -1;
 	if (L >= low and R <= high) return st[i];
 
-	let leftMiddle = (L + R) / 2;
-	let rightMiddle = (L + R) / 2 + 1;
+	let lMid = (L + R) / 2;
+	let rMid = (L + R) / 2 + 1;
 
-	let leftVal = rangeQuery(Left(i), L, leftMiddle, low, high);
-	let rightVal = rangeQuery(Right(i), rightMiddle, R, low, high);
+	let leftVal = rangeQuery(Left(i), L, lMid, low, high);
+	let rightVal = rangeQuery(Right(i), rMid, R, low, high);
 	if (leftVal == -1) return rightVal;
 	if (rightVal == -1) return leftVal;
-	return comparator(A[leftVal], A[rightVal]) ? leftVal : rightVal;
+	return comparator(A[leftVal], A[rightVal]) ?
+	    leftVal : rightVal;
     }
 
 

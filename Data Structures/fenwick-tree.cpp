@@ -12,20 +12,20 @@ public:
     void reset(ll n){tree.assign(n + 1, 0);}
 
     // Calculates sum of values at indices [1, 2, ... i].
-    ll sum(ll i){
+    ll sum(ll idx){
         ll sum = 0;
-        while(i > 0){
-            sum += tree[i];
-            i -= i & (-i);
+        while(idx > 0){
+            sum += tree[idx];
+            idx -= idx & (-idx);
         }
         return sum;
     }
 
     // Adds a value x to index i.
-    void add(ll i, ll x){
-        while(i < tree.size()){
-            tree[i] += x;
-            i += i & (-i);
+    void add(ll idx, ll x){
+        while(idx < tree.size()){
+            tree[idx] += x;
+            idx += idx & (-idx);
         }
     }
 };
