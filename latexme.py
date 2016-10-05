@@ -14,6 +14,8 @@ Sections = defaultdict(lambda : 'Other',
                            'Math' : 'Math',
                            'Miscellaneous' : 'Other',
                            'String Algorithms' : 'String',
+                           'Number Theory': 'Math',
+                           'Utility' : 'Other'
                        })
 
 FileTypes = {

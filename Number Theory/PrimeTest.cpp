@@ -4,7 +4,6 @@
 
 using ll = long long:
 
-// Modular exponentiation: http://www.geeksforgeeks.org/modular-exponentiation-power-in-modular-arithmetic/
 // b^n % m in O(logy)
 ll powmod(ll b, ll n, ll m){
     ll res = 1;
@@ -19,7 +18,6 @@ ll powmod(ll b, ll n, ll m){
     return res;
 }
 
-// Idea: http://www.geeksforgeeks.org/primality-test-set-3-miller-rabin/
 bool miller_test(ll d, ll n){
     ll a = 2 + rand() % (n - 4);
     ll x = powmod(a, d, n);
