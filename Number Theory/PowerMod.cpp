@@ -1,7 +1,5 @@
-// Modular exponentiation: http://www.geeksforgeeks.org/modular-exponentiation-power-in-modular-arithmetic/
 // b^n % m in O(logy)
-ll powmod(ll b, ll n, ll m)
-{
+ll powmod(ll b, ll n, ll m) {
     ll res = 1;
     b = b % m;
     while (n > 0){
