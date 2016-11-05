@@ -1,4 +1,6 @@
 /* Fast IO */
+
+/* ------- */
 #define getch getchar_unlocked
 #define putch putchar_unlocked
 char buff[16];
