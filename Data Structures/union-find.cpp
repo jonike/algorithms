@@ -19,20 +19,8 @@ public:
     }
 
     inline int find(int x){
-        int u = parent[x];
-        int v = u;
-        while(parent[u] != u){u = parent[u];}
-        while(v != u){
-            parent[x] = u;
-            x = v;
-            v = parent[x];
-        }
-        return u;
-    }
-
-    inline int find_recursive(int x){
         int& y = parent[x];
-        if(x != y){y = find_recursive(y);}
+        if(x != y){y = find(y);}
         return y;
     }
 };
