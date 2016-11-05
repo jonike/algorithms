@@ -89,8 +89,9 @@ template<typename T> bool is_prime(T n, T k = 90000){
 }
 
 // Prime sieve in O(n * (log n) * (loglog n)).
-template<typename T> vector<bool> sieve(const T MAX_PRIME){
-    vector<bool> p(MAX_PRIME, true);
+template<typename T> vector<bool> sieve(T MAX_PRIME){
+    vector<bool> p(++MAX_PRIME, true);
+    p[0] = p[1] = false;
     for(int i = 2; i * i < MAX_PRIME; i++){
         if(p[i]){
             for(int j = i * i; j < MAX_PRIME; j += i){
