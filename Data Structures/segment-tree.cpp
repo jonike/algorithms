@@ -11,7 +11,7 @@ struct SegmentTree {
     const vector<int>& A;
     const size_t Size;
     function<bool(int, int)> comparator;
-    
+
     SegmentTree(const vector<int>& Values,
 		function<bool(int, int)> comp=less<int>())
 	: st{}, A{Values}, Size{Values.size()}, comparator{comp} {
@@ -54,6 +54,5 @@ struct SegmentTree {
     int rangeQuery(int i, int j) {
 	return rangeQuery(1, 0, Size - 1, i, j);
     }
-    
-};
 
+};
