@@ -1,4 +1,4 @@
-/* Competitive programming template. */
+/* Start of header. */
 #include <bits/stdc++.h>
 #define REP(k,a) for(auto k=decltype(a)(0); k < (a); ++k)
 using namespace std;
