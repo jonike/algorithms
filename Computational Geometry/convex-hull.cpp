@@ -29,16 +29,14 @@ vector<point> convex_hull(vector<point> pts){
         while(k >= 2 && point::cross(hull[k-2], hull[k-1], pts[i]) <= 0){
             --k;
         }
-        hull[k] = pts[i];
-        ++k;
+        hull[k++] = pts[i];
     }
 
     for(int i = n - 2, t = k + 1; i >= 0; --i){
         while(k >= t && point::cross(hull[k-2], hull[k-1], pts[i]) <= 0){
             --k;
         }
-        hull[k] = pts[i];
-        ++k;
+        hull[k++] = pts[i];
     }
 
     hull.resize(k - 1);
