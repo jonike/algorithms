@@ -9,8 +9,8 @@ public:
     union_set(int size){reset(size);}
 
     inline void unify(int a, int b){
-        a = find(a);
-        parent[a] = find(b);
+        a = find_iterative(a);
+        parent[a] = find_iterative(b);
     }
 
     inline void reset(int n){
@@ -18,7 +18,7 @@ public:
         for(int i = 0; i < n; ++i){parent[i] = i;}
     }
 
-    inline int find(int x){
+    inline int find_iterative(int x){
         int u = parent[x];
         int v = u;
         while(parent[u] != u){u = parent[u];}
