@@ -1,4 +1,5 @@
-/* Calculates the Euler-Phi totient function for a given number. */
+/* Counts the positive integers up to a given integer x that are relatively prime to x using Euler's totient function. */
+// See https://en.wikipedia.org/wiki/Euler%27s_totient_function
 #include <algorithm>
 #define MAX_PRIME 10000000
 using namespace std;
@@ -23,8 +24,6 @@ void sieve(){
     }
 }
 
-// Counts the positive integers up to a given integer x that are relatively prime to x.
-// See https://en.wikipedia.org/wiki/Euler%27s_totient_function
 ull euler_phi(ull x){
     if(x <= MAX_PRIME && is_prime[x]){ return x - 1; }
     ull res = x;
