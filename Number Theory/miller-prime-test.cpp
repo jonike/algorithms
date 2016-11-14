@@ -40,7 +40,7 @@ template<typename T> bool is_prime(T n, T k = 90000){
     if(n <= 3){
         return true;
     }
-    if(n % 2 == 0){
+    if(n % 2 == 0 || n % 3 == 0){
         return false;
     }
     T d = n - 1;
