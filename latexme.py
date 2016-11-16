@@ -72,7 +72,7 @@ header = r"""\title{A Competitive Programming Cheat Sheet}
 \usepackage[landscape,margin=0.5in]{geometry}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage[utf8]{inputenc}
-\author{Make Programming Great Again™}
+\author{Make Programming Great Again!}
 
 \definecolor{comment-color}{rgb}{0.0,0.3,0.0} % Comment color
 \definecolor{highlight}{RGB}{255,251,204} % Code highlight color
