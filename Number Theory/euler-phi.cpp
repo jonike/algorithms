@@ -1,4 +1,5 @@
-/* Counts the positive integers up to a given integer x that are relatively prime to x using Euler's totient function. */
+/* Counts the positive integers up to a given integer x that are
+   relatively prime to x using Euler's totient function. */
 // See https://en.wikipedia.org/wiki/Euler%27s_totient_function
 #include <algorithm>
 #define MAX_PRIME 10000000
