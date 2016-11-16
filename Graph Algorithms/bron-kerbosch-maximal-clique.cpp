@@ -22,16 +22,11 @@ struct AdjList : vtset {
 
 void BronKerbosch(AdjList & adj, tset R, tset P, tset X, vtset & cliques){
 	if (P.empty() && X.empty()){
-		cliques.pb(R);
+		cliques.push_back(R);
 		return;
 	}
 
-	int pivot;
-	if (!P.empty()){
-		pivot = *(P.begin());
-	} else {
-		pivot = *(X.begin());
-	}
+	int pivot = !P.empty() ? pivot = *(P.begin()) : pivot = *(X.begin());
 
 	tset pivotedP;
 	set_difference(P.begin(), P.end(), adj[pivot].begin(), adj[pivot].end(), insert_iterator<tset>(pivotedP, pivotedP.begin()));
@@ -40,7 +35,7 @@ void BronKerbosch(AdjList & adj, tset R, tset P, tset X, vtset & cliques){
 		_R.insert(i);
 		set_intersection(P.begin(), P.end(), adj[i].begin(), adj[i].end(), insert_iterator<tset>(_PNi, _PNi.begin()));
 		set_intersection(X.begin(), X.end(), adj[i].begin(), adj[i].end(), insert_iterator<tset>(_XNi, _XNi.begin()));
-		bronKerboschPivot(adj, _R, _PNi, _XNi, cliques);
+		BronKerbosch(adj, _R, _PNi, _XNi, cliques);
 		X.insert(i);
 		P.erase(i);
 	}
