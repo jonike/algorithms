@@ -3,15 +3,18 @@
 #include <algorithm>
 using namespace std;
 
-// If using float or double: make sure that the equals (==) operator is correct.
+// If using float or double: make sure that the equals (==) operator
+// is correct.
 using value_type = int;
 
 struct point{
     value_type x, y; 
     point(value_type _x, value_type _y) : x(_x), y(_y){}
     point(){}
-    bool operator==(const point & r) const {return x == r.x && y == r.y;}
-    bool operator<(const point & r) const {return x < r.x || (x == r.x && y < r.y);}
+    bool operator==(const point & r) const
+    {return x == r.x && y == r.y;}
+    bool operator<(const point & r) const
+    {return x < r.x || (x == r.x && y < r.y);}
     static value_type cross(const point & a, const point & b, const point & c){
         return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
     }

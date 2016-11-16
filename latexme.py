@@ -95,12 +95,31 @@ keywordstyle=\color{keyword-color},
 
 """
 
+def long_lines(path, lines):
+    for idx, line in enumerate(lines):
+        if len(line) > 80:
+            print("line {:5} in {:60} is {:5} characters long!".format(idx + 1, path, len(line)))
+
+def check_file_for(path, func):
+    with open(path, 'r') as f:
+        lines = f.readlines()
+    func(path, lines)
+    
+
 if __name__ == '__main__':
     if len(sys.argv) != 2:
         print("'python3 latexme.py output_filename' needs to be run")
+        print("'python3 latexme.py check' can also be run to check for long lines")
         exit(1)
+
+
     entries = []
     recursive_collect(entries, CODE_DIR)
+    if sys.argv[1] == 'check':
+        for entry in entries:
+            check_file_for(entry.path, long_lines)
+        exit(0)
+        
     entries.sort(key=lambda x: x.section or "ZZZ")
     last_section = "TheCoolestPlaceholderAlive"
     sections = ""
