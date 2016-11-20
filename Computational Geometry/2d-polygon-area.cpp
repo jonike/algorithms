@@ -1,4 +1,3 @@
-/* Uses the shoelace formula to calculate the area of a given 2D polygon. */
 #include <vector>
 using namespace std;
 

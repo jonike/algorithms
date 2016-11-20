@@ -1,4 +1,5 @@
-/* Convex hull using Andrew's monotone chain algorithm in O(n log n). */
+/* Convex hull using Andrew's monotone chain algorithm in 
+   O(n log n). */
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -15,12 +16,15 @@ struct point{
     {return x == r.x && y == r.y;}
     bool operator<(const point & r) const
     {return x < r.x || (x == r.x && y < r.y);}
-    static value_type cross(const point & a, const point & b, const point & c){
-        return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
+    static value_type cross(const point & a, const point & b,
+			    const point & c){
+        return (b.x - a.x) * (c.y - a.y) -
+	    (b.y - a.y) * (c.x - a.x);
     }
 };
 
-vector<point> convex_hull(vector<point> pts){ // Note! Copied, not referenced!
+// Note! Variable copied, not referenced!
+vector<point> convex_hull(vector<point> pts){
     sort(pts.begin(), pts.end());
     pts.erase(unique(pts.begin(), pts.end()), pts.end());
 	
@@ -30,14 +34,16 @@ vector<point> convex_hull(vector<point> pts){ // Note! Copied, not referenced!
 
     int k = 0;
     for(int i = 0; i < n; ++i){
-        while(k >= 2 && point::cross(hull[k-2], hull[k-1], pts[i]) <= 0){
+        while(k >= 2 && point::cross(hull[k-2],
+				     hull[k-1], pts[i]) <= 0){
             --k;
         }
         hull[k++] = pts[i];
     }
 
     for(int i = n - 2, t = k + 1; i >= 0; --i){
-        while(k >= t && point::cross(hull[k-2], hull[k-1], pts[i]) <= 0){
+        while(k >= t && point::cross(hull[k-2],
+				     hull[k-1], pts[i]) <= 0){
             --k;
         }
         hull[k++] = pts[i];

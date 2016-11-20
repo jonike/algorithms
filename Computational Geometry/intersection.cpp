@@ -64,7 +64,8 @@ bool intersects(const Line& l, const Circle& c) {
 }
 
 bool intersection(const Line& l1, const Line& l2, Point& ret) {
-    if (EPS(l1.a - l2.a) and EPS(l1.b - l2.b)) return false; // parallell
+    // parallell
+    if (EPS(l1.a - l2.a) and EPS(l1.b - l2.b)) return false;
     // Assuming l1.a != 0!!!
     
     // a1*x + b1*y + c1 = 0

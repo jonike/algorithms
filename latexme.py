@@ -72,7 +72,13 @@ header = r"""\title{A Competitive Programming Cheat Sheet}
 \usepackage[landscape,margin=0.5in]{geometry}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
 \author{Make Programming Great Again!}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\fancyhead[L]{Linköping University}
 
 \definecolor{comment-color}{rgb}{0.0,0.3,0.0} % Comment color
 \definecolor{highlight}{RGB}{255,251,204} % Code highlight color
@@ -97,7 +103,7 @@ keywordstyle=\color{keyword-color},
 
 def long_lines(path, lines):
     for idx, line in enumerate(lines):
-        if len(line) > 80:
+        if len(line) > 70:
             print("line {:5} in {:60} is {:5} characters long!".format(idx + 1, path, len(line)))
 
 def check_file_for(path, func):
