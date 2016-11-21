@@ -1,5 +1,7 @@
 # Problems for Algorithms
 
+This document contains links to problems that are solveable using the algorithms in this repository. Hopefully this will be able to assist other problem solvers and programming competitors.
+
 ## [Dijkstra shortest path](https://github.com/Friduric/algorithms/blob/master/Graph%20Algorithms/dijkstra-shortest-path.cpp)
 
 #### [Iron and Coal - ironcoal](https://open.kattis.com/problems/ironcoal)
