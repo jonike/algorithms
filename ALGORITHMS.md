@@ -1,6 +1,6 @@
 # Problems for Algorithms
 
-## Dijkstra shortest path
+## [Dijkstra shortest path](https://github.com/Friduric/algorithms/blob/master/Graph%20Algorithms/dijkstra-shortest-path.cpp)
 
 #### [Iron and Coal - ironcoal](https://open.kattis.com/problems/ironcoal)
 
@@ -10,7 +10,7 @@ Solved by: catears, ...
 
 Solved by: catears, ...
 
-## Bellman Ford shortest path
+## [Bellman Ford shortest path](https://github.com/Friduric/algorithms/blob/master/Graph%20Algorithms/bellmanford-shortest-path.cpp)
 
 #### [Single source shortest path, negative weights](https://open.kattis.com/problems/shortestpath3)
 
