@@ -4,7 +4,7 @@ This document contains links to problems that are solveable using the algorithms
 
 ## [Dijkstra shortest path](https://github.com/Friduric/algorithms/blob/master/Graph%20Algorithms/dijkstra-shortest-path.cpp)
 
-#### [Iron and Coal - ironcoal](https://open.kattis.com/problems/ironcoal)
+#### [Iron and Coal](https://open.kattis.com/problems/ironcoal)
 
 Solved by: catears
 
@@ -19,6 +19,22 @@ Solved by: Friduric, catears
 #### [Single source shortest path, non-negative weights](https://open.kattis.com/problems/shortestpath1)
 
 Solved by: catears, Friduric
+
+#### [Charles in Charge](https://open.kattis.com/problems/charlesincharge)
+
+Solved by: Friduric
+
+#### [Nikola](https://open.kattis.com/problems/nikola)
+
+Solved by: Friduric
+
+#### [Full Tank?](https://liu.kattis.com/problems/fulltank)
+
+Solved by: Friduric
+
+#### [Ocean Currents](https://open.kattis.com/problems/oceancurrents)
+
+Solved by: Friduric
 
 ## [Bellman Ford shortest path](https://github.com/Friduric/algorithms/blob/master/Graph%20Algorithms/bellmanford-shortest-path.cpp)
 
