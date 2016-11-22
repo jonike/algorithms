@@ -18,7 +18,7 @@ Solved by: Friduric, catears
 
 #### [Single source shortest path, non-negative weights](https://open.kattis.com/problems/shortestpath1)
 
-Solved by: catears, Friduric
+Solved by: Friduric, catears
 
 #### [Charles in Charge](https://open.kattis.com/problems/charlesincharge)
 
@@ -30,7 +30,7 @@ Solved by: Friduric
 
 #### [Full Tank?](https://liu.kattis.com/problems/fulltank)
 
-Solved by: Friduric
+Solved by: Friduric, catears
 
 #### [Ocean Currents](https://open.kattis.com/problems/oceancurrents)
 
@@ -42,7 +42,7 @@ Solved by: Friduric
 
 #### [Single source shortest path, negative weights](https://open.kattis.com/problems/shortestpath3)
 
-Solved by: catears, Friduric
+Solved by: Friduric, catears
 
 
 
@@ -60,6 +60,10 @@ Solved by: catears
 
 Solved by: catears
 
+#### [Gopher Strategy - 10804](https://uva.onlinejudge.org/external/108/10804.pdf)
+
+Solved by: catears
+
 
 
 ## [Topological sort](https://github.com/Friduric/algorithms/blob/master/Graph%20Algorithms/toposort.cpp)
@@ -73,5 +77,9 @@ Solved by: catears
 ## [Trie](https://github.com/Friduric/algorithms/blob/master/String%20Algorithms/trie.cpp)
 
 #### [Bing - bing](https://open.kattis.com/problems/bing)
+
+Solved by: catears
+
+#### [GATTACA - 11512](https://uva.onlinejudge.org/external/115/11512.pdf)
 
 Solved by: catears
