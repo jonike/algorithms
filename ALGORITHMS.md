@@ -36,8 +36,42 @@ Solved by: Friduric
 
 Solved by: Friduric
 
+
+
 ## [Bellman Ford shortest path](https://github.com/Friduric/algorithms/blob/master/Graph%20Algorithms/bellmanford-shortest-path.cpp)
 
 #### [Single source shortest path, negative weights](https://open.kattis.com/problems/shortestpath3)
 
 Solved by: catears, Friduric
+
+
+
+## Dinic maximum flow
+
+#### [Jupiter - jupiter](https://open.kattis.com/problems/jupiter)
+
+Solved by: catears
+
+
+
+## Ford Fulkerson maximum flow
+
+#### [Jupiter - jupiter](https://open.kattis.com/problems/jupiter)
+
+Solved by: catears
+
+
+
+## [Topological sort](https://github.com/Friduric/algorithms/blob/master/Graph%20Algorithms/toposort.cpp)
+
+#### [Digi Comp II - digicomp2](https://open.kattis.com/problems/digicomp2)
+
+Solved by: catears
+
+
+
+## [Trie](https://github.com/Friduric/algorithms/blob/master/String%20Algorithms/trie.cpp)
+
+#### [Bing - bing](https://open.kattis.com/problems/bing)
+
+Solved by: catears
