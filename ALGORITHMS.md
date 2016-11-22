@@ -46,21 +46,21 @@ Solved by: Friduric, catears
 
 
 
-## Dinic maximum flow
+## [Dinic maximum flow](https://github.com/Friduric/algorithms/blob/master/Graph%20Algorithms/dinic-maxflow.cpp)
 
-#### [Jupiter - jupiter](https://open.kattis.com/problems/jupiter)
-
-Solved by: catears
-
-
-
-## Ford Fulkerson maximum flow
-
-#### [Jupiter - jupiter](https://open.kattis.com/problems/jupiter)
+#### [Jupiter](https://open.kattis.com/problems/jupiter)
 
 Solved by: catears
 
-#### [Gopher Strategy - 10804](https://uva.onlinejudge.org/external/108/10804.pdf)
+
+
+## [Ford Fulkerson maximum flow](https://github.com/Friduric/algorithms/blob/master/Graph%20Algorithms/fulkerson-maxflow.cpp)
+
+#### [Jupiter](https://open.kattis.com/problems/jupiter)
+
+Solved by: catears
+
+#### [Gopher Strategy](https://uva.onlinejudge.org/external/108/10804.pdf)
 
 Solved by: catears
 
@@ -68,7 +68,7 @@ Solved by: catears
 
 ## [Topological sort](https://github.com/Friduric/algorithms/blob/master/Graph%20Algorithms/toposort.cpp)
 
-#### [Digi Comp II - digicomp2](https://open.kattis.com/problems/digicomp2)
+#### [Digi Comp II](https://open.kattis.com/problems/digicomp2)
 
 Solved by: catears
 
@@ -76,10 +76,10 @@ Solved by: catears
 
 ## [Trie](https://github.com/Friduric/algorithms/blob/master/String%20Algorithms/trie.cpp)
 
-#### [Bing - bing](https://open.kattis.com/problems/bing)
+#### [Bing](https://open.kattis.com/problems/bing)
 
 Solved by: catears
 
-#### [GATTACA - 11512](https://uva.onlinejudge.org/external/115/11512.pdf)
+#### [GATTACA](https://uva.onlinejudge.org/external/115/11512.pdf)
 
 Solved by: catears
