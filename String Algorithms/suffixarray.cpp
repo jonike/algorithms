@@ -1,70 +1,54 @@
 #include <vector>
 #include <string>
 #include <utility>
+#include <algorithm>
+#include <cstring>
 #define let const auto
 using namespace std;
 
 struct SuffixArray {
     const string subject;
-    vector<int> SA, RA; // SA == Suffix array, RA == Rank array
+    vector<int> SA;
 
-    void countingSort(int k) {
-	vector<int> count(max((size_t)256, subject.size()));
-	let n = (int) subject.size();
+    struct entry {
+	pair<int, int> nr;
+	int pos;
 
-	for (int i = 0; i < n; ++i) {
-	    if (i + k < n) count[RA[i + k]]++;
-	    else count[0]++;
+	bool operator<(const entry& e) {
+	    return nr < e.nr;
 	}
-	
-	for (int i = 0, sum = 0; i < (int) count.size(); ++i) {
-	    // let count[i], sum == sum, count[i] + sum
-	    let tmp = count[i];
-	    count[i] = sum;
-	    sum += tmp;
-	}
+    };
 
-	vector<int> tmp(subject.size());
-	for (int i = 0; i < n; ++i) {
-	    int idx = (SA[i] + k >= n) ? 0 : RA[SA[i] + k];
-	    tmp[count[idx]++] = SA[i];
-	}
-
-	SA = move(tmp);
-    }
     
     void constructSA() {
 	let n = (int) subject.size();
-	vector<int> tmp(subject.size());
-	
+	vector<entry> L(n);
+	vector< vector<int> > P;
+	P.push_back(vector<int>(n));
 	for (int i = 0; i < n; ++i) {
-	    RA[i] = subject[i];
-	    SA[i] = i;
+	    P[0][i] = subject[i];
 	}
 	
-	// Radix sorting
-	for (int k = 1, r; k < n; k <<= 1) {
-	    countingSort(k);
-	    countingSort(0); // Stable sort based on 0 rank
-
-	    tmp[SA[0]] = r = 0;
-	    for (int i = 1; i < n; ++i) {
-		let curr_s = SA[i];
-		let prev_s = SA[i-1];
-		let curr = make_pair(RA[curr_s], RA[curr_s + k]);
-		let prev = make_pair(RA[prev_s], RA[prev_s + k]);
-
-		if (prev == curr) tmp[curr_s] = r;
-		else tmp[curr_s] = ++r;
+	for (int k = 1, cnt = 1; cnt >> 1 < n; ++k, cnt <<= 1) {
+	    for (int i = 0; i < n; ++i) {
+		L[i] = {make_pair(P[k-1][i], (i + cnt < n) ? P[k-1][i+cnt] : -1), i};
 	    }
-	    copy_n(begin(tmp), n, begin(RA));
-	    
-	    if (RA[SA[n-1]] == n-1) break;
+	    sort(begin(L), end(L));
+	    vector<int> Papp(n);
+	    for (int i = 1; i < n; ++i) {
+		Papp[L[i].pos] = (L[i].nr == L[i - 1].nr) ? Papp[L[i - 1].pos] : i;
+	    }
+
+	    P.push_back(Papp);
+	}
+
+	for (int i = 0; i < n; ++i) {
+	    SA[P[P.size() - 1][i]] = i;
 	}
     }
     
-    SuffixArray(const string& s) : subject{s + "$"} {
-	RA.resize(subject.size());
+    
+    SuffixArray(const string& s) : subject{s} {
 	SA.resize(subject.size());
 	constructSA();
     }
