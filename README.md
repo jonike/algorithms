@@ -1,5 +1,5 @@
 # Introduction
-This is a minimalistic competitive programming library written in C++.
+This is a algorithm and utility programming library written for programming competitions.
 
 Feel free to use, modify and share. Sharing is caring!
 
