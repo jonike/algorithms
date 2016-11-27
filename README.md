@@ -1,5 +1,5 @@
 # Introduction
-This is a algorithm and utility programming library written for programming competitions.
+This is an algorithm and utility library written for programming competitions.
 
 Feel free to use, modify and share. Sharing is caring!
 
