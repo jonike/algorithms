@@ -22,7 +22,7 @@ template<typename T> T gcd(T a, T b) {return b == 0 ? a : gcd<T>(b, a % b);}
 template<typename T> T lcm(T a, T b) {return abs(a * b) / gcd(a, b);}
 
 // Modulus for negative (and positive) numbers.
-template<typename T> T negmod(T a, T n){if(a < 0){return (n + (a % n)) % n;} else {return a;}}
+template<typename T> T negmod(T a, T n){if(a < 0){return (n + (a % n)) % n;} else {return a % n;}}
 
 // Modular multiplicative inverse.
 template<typename T> T modinv(T a, T n){T ainv, scrap;egcd(a, n, &ainv, &scrap);return negmod(ainv, n);}
