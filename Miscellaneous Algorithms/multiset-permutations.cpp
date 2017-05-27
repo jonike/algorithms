@@ -1,4 +1,5 @@
 // Relatively effective multiset permutation generator. Not as effective as std::next_permutation though.
+// std::next_permutation is about double as fast.
 // Looked at https://github.com/ekg/multipermute/blob/master/multipermute.h while implementing this.
 
 #include <vector>
