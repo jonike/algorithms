@@ -55,8 +55,7 @@ template <class T>
 std::vector< std::vector<T> > GenerateAllMultisetPermutations(std::vector<T>& Multiset) 
 {    
     std::vector< std::vector<T> > Results;
-    const int nMembers = Multiset.size();
-
+	
     // Non-increasing order.
     std::sort( Multiset.begin(), Multiset.end() ); 
 	
