@@ -1,4 +1,8 @@
 // Relatively effective multiset permutation generator. Not as effective as std::next_permutation though.
+// Looked at https://github.com/ekg/multipermute/blob/master/multipermute.h while implementing this.
+
+#include <vector>
+#include <algorithm>
 
 template <class T>
 class CList
@@ -63,8 +67,7 @@ std::vector< std::vector<T> > GenerateAllMultisetPermutations(std::vector<T>& Mu
 
     Results.push_back( std::move( h->ToVector() ) );
 
-    // Generate all multiset permutations using Aaron William's prefix shifts from:
-    // "Loopless Generation of Multiset Permutations using a Constant Number of Variables by Prefix Shifts".
+    // Generate all multiset permutations.
     while (j->_pNext != nullptr || j->_Value < h->_Value) 
     {
         s = (j->_pNext != nullptr && i->_Value >= j->_pNext->_Value) ? j : i;
