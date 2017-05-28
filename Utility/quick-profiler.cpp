@@ -10,7 +10,7 @@ struct SBlockProfiler
     std::chrono::high_resolution_clock::time_point tp;
     
     SBlockProfiler(std::string const & _name) 
-      : name(_name), p(std::chrono::high_resolution_clock::now()) {}
+      : name(_name), tp(std::chrono::high_resolution_clock::now()) {}
       
     ~SBlockProfiler()
     {
